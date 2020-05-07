@@ -2,13 +2,16 @@ import {SearchActions, SearchActionTypes} from '../actions/search.actions'
 
 export interface SearchState {
     items:any[],
-    isloading:Boolean
+    isloading:Boolean,
+    error:string
+
 
 }
 
 export const initialState: SearchState = {
     items:[],
-    isloading:false
+    isloading:false,
+    error:''
 }
 
 export function searchReducer(
@@ -20,7 +23,9 @@ export function searchReducer(
         return {
           ...state,
           items:action.data,
-          isloading:action.isloading
+          isloading:action.isloading,
+          error:''
+
         };
 
         case SearchActionTypes.LoadSearch:
@@ -28,7 +33,14 @@ export function searchReducer(
           ...state,
           isloading:action.isloading
         };
-      
+
+        case SearchActionTypes.LoadSearchFailure:
+        return {
+          ...state,
+          isloading:action.isloading,
+          error:action.error
+        };
+
       default:
         return state;
     }

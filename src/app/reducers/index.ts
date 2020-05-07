@@ -34,6 +34,11 @@ export const selectIsloading = createSelector(
   state => state.isloading
 );
 
+export const selectError = createSelector(
+  searchFeatureState,
+  state => state.error
+);
+
 
 
 

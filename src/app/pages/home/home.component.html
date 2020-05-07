@@ -1,4 +1,6 @@
 <h1 class="my-3">Welcome to Github Search</h1>
 <app-search-bar></app-search-bar>
 <p *ngIf="isLoading">Loading ...</p>
+<p *ngIf="error">There is some error !!</p>
+
 <app-repos-list class="list"></app-repos-list>

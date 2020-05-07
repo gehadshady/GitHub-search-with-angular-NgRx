@@ -7,9 +7,6 @@ import { catchError, filter, mergeMap } from 'rxjs/operators';
 import {SearchService} from '../services/search.service';
 
 
-
-
-
 @Injectable()
 export class SearchEffects {
   constructor(
@@ -28,7 +25,7 @@ export class SearchEffects {
           return [new LoadSearchSuccess(response['items'] ,false)]
         }),
         catchError(error=>{
-          return [new LoadSearchFailure(error,false)]
+          return [new LoadSearchFailure(error.message,false)]
 
         }
 
